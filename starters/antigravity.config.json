@@ -1,0 +1,73 @@
+{
+  "projectName": "Lead Qualifier",
+  "framework": {
+    "path": "./framework",
+    "enabled": true
+  },
+  "ai": {
+    "providers": {
+      "anthropic": {
+        "enabled": true,
+        "models": ["claude-opus-4", "claude-sonnet-4", "claude-haiku-4"],
+        "defaultModel": "claude-sonnet-4",
+        "apiKeyEnv": "REACT_APP_ANTHROPIC_API_KEY",
+        "useCases": ["reasoning", "code-generation", "analysis"]
+      },
+      "openai": {
+        "enabled": true,
+        "models": ["gpt-4", "gpt-4-turbo", "gpt-3.5-turbo"],
+        "defaultModel": "gpt-4",
+        "apiKeyEnv": "REACT_APP_OPENAI_API_KEY",
+        "useCases": ["embeddings", "backup"]
+      },
+      "google": {
+        "enabled": false,
+        "models": ["gemini-pro", "gemini-ultra"],
+        "defaultModel": "gemini-pro",
+        "apiKeyEnv": "REACT_APP_GOOGLE_API_KEY",
+        "useCases": ["multi-modal"]
+      },
+      "local": {
+        "enabled": false,
+        "endpoint": "http://localhost:11434",
+        "models": ["llama2", "mistral"],
+        "defaultModel": "llama2",
+        "useCases": ["development", "testing"]
+      }
+    },
+    "routing": {
+      "strategy": "cost-optimized",
+      "rules": {
+        "simple-queries": "claude-haiku-4",
+        "complex-reasoning": "claude-opus-4",
+        "general": "claude-sonnet-4",
+        "embeddings": "openai/text-embedding-ada-002"
+      },
+      "fallback": {
+        "enabled": true,
+        "order": ["anthropic", "openai", "local"]
+      }
+    },
+    "contextWindow": 200000,
+    "maxRetries": 3
+  },
+  "environment": {
+    "envFile": ".env",
+    "requiredVars": [
+      "REACT_APP_ANTHROPIC_API_KEY"
+    ],
+    "optionalVars": [
+      "REACT_APP_OPENAI_API_KEY",
+      "REACT_APP_GOOGLE_API_KEY"
+    ]
+  },
+  "agents": {
+    "autoDiscovery": true,
+    "agentPath": "./framework/src/agents"
+  },
+  "monitoring": {
+    "trackCosts": true,
+    "trackLatency": true,
+    "logAllRequests": true
+  }
+}

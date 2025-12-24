@@ -1,0 +1,164 @@
+# AGI Framework Environment Configuration
+# Copy this file to .env and fill in your values
+
+# =============================================================================
+# MODEL PROVIDERS
+# =============================================================================
+
+# Anthropic (Claude) - Primary provider
+# Get your API key at: https://console.anthropic.com/
+REACT_APP_ANTHROPIC_API_KEY=
+
+# OpenAI (GPT-4) - Secondary provider
+# Get your API key at: https://platform.openai.com/api-keys
+REACT_APP_OPENAI_API_KEY=
+
+# Default model to use (options: claude-sonnet-4, claude-opus-4, gpt-4)
+REACT_APP_DEFAULT_MODEL=claude-sonnet-4
+
+# =============================================================================
+# APPLICATION SETTINGS
+# =============================================================================
+
+# Log level (debug, info, warn, error)
+REACT_APP_LOG_LEVEL=info
+
+# Maximum context tokens to use (leave room for response)
+REACT_APP_MAX_CONTEXT_TOKENS=100000
+
+# Enable debug mode (shows detailed logs)
+REACT_APP_DEBUG_MODE=false
+
+# =============================================================================
+# MEMORY SYSTEMS
+# =============================================================================
+
+# Vector Database for Semantic Memory
+# Options: pinecone, weaviate, qdrant, chroma
+REACT_APP_VECTOR_DB_TYPE=pinecone
+REACT_APP_VECTOR_DB_URL=
+REACT_APP_VECTOR_DB_API_KEY=
+
+# Structured Database for Episodic Memory
+# PostgreSQL connection string
+REACT_APP_EPISODIC_DB_URL=postgresql://user:password@localhost:5432/agi_framework
+
+# Redis for caching (optional)
+REACT_APP_REDIS_URL=redis://localhost:6379
+
+# =============================================================================
+# PERFORMANCE & RATE LIMITING
+# =============================================================================
+
+# Maximum concurrent agent executions
+REACT_APP_MAX_CONCURRENT_AGENTS=5
+
+# Request timeout in milliseconds
+REACT_APP_REQUEST_TIMEOUT_MS=30000
+
+# Enable request caching
+REACT_APP_ENABLE_CACHING=true
+
+# Cache TTL in seconds
+REACT_APP_CACHE_TTL=3600
+
+# =============================================================================
+# COST MANAGEMENT
+# =============================================================================
+
+# Daily budget limit in USD (0 = unlimited)
+REACT_APP_DAILY_BUDGET=0
+
+# Warn when approaching this percentage of budget
+REACT_APP_BUDGET_WARNING_THRESHOLD=80
+
+# Enable cost tracking
+REACT_APP_TRACK_COSTS=true
+
+# =============================================================================
+# TOOL CONFIGURATION
+# =============================================================================
+
+# Web search tool API (options: serper, serpapi, brave)
+REACT_APP_SEARCH_API_TYPE=serper
+REACT_APP_SEARCH_API_KEY=
+
+# Enable dynamic tool generation
+REACT_APP_ENABLE_DYNAMIC_TOOLS=true
+
+# Require approval for AI-generated tools
+REACT_APP_REQUIRE_TOOL_APPROVAL=true
+
+# =============================================================================
+# SECURITY
+# =============================================================================
+
+# Enable prompt injection detection
+REACT_APP_DETECT_PROMPT_INJECTION=true
+
+# Enable output validation
+REACT_APP_VALIDATE_OUTPUTS=true
+
+# Maximum tool execution time (seconds)
+REACT_APP_MAX_TOOL_EXECUTION_TIME=30
+
+# =============================================================================
+# MONITORING & ANALYTICS
+# =============================================================================
+
+# Enable telemetry (anonymous usage data)
+REACT_APP_ENABLE_TELEMETRY=false
+
+# Analytics service (options: none, posthog, mixpanel)
+REACT_APP_ANALYTICS_SERVICE=none
+REACT_APP_ANALYTICS_KEY=
+
+# Error tracking (options: none, sentry)
+REACT_APP_ERROR_TRACKING=none
+REACT_APP_SENTRY_DSN=
+
+# =============================================================================
+# DEVELOPMENT
+# =============================================================================
+
+# Port for development server
+PORT=3000
+
+# Enable React DevTools
+REACT_APP_DEVTOOLS=true
+
+# Mock API calls in development (don't hit real APIs)
+REACT_APP_MOCK_API=false
+
+# =============================================================================
+# PROMPTS & TEMPLATES
+# =============================================================================
+
+# Prompt version to use (default, experimental)
+REACT_APP_PROMPT_VERSION=default
+
+# Enable prompt A/B testing
+REACT_APP_ENABLE_PROMPT_TESTING=false
+
+# =============================================================================
+# EXPERIMENTAL FEATURES
+# =============================================================================
+
+# Enable reflection loops for all agents
+REACT_APP_ENABLE_REFLECTION=true
+
+# Enable agent-to-agent communication
+REACT_APP_ENABLE_AGENT_COMMUNICATION=true
+
+# Enable memory compression
+REACT_APP_ENABLE_MEMORY_COMPRESSION=true
+
+# Maximum reflection iterations
+REACT_APP_MAX_REFLECTION_ITERATIONS=3
+node_modules
+
+node_modules/
+
+.env
+.env.local
+.env.*.local
