@@ -1,0 +1,25 @@
+{
+    "name": "agi-framework",
+    "version": "1.0.0",
+    "private": true,
+    "description": "AGI-ready AI application framework by Funnelists LLC",
+    "author": "Funnelists LLC",
+    "license": "MIT",
+    "dependencies": {
+        "@anthropic-ai/sdk": "^0.71.2",
+        "@google/generative-ai": "^0.24.1",
+        "@supabase/supabase-js": "^2.89.0",
+        "openai": "^6.15.0"
+    },
+    "scripts": {
+        "test": "jest",
+        "lint": "eslint src/**/*.js",
+        "prepare": "husky",
+        "pre-commit-check": "node scripts/check-secrets.js"
+    },
+    "devDependencies": {
+        "eslint": "^8.45.0",
+        "husky": "^9.1.7",
+        "jest": "^29.7.0"
+    }
+}
